@@ -21,6 +21,6 @@ Change the path in ```mapping.py```to the path containing ```ips-countries.json`
 
 Run the following command:
 
-  python3 mapping.py
+    python3 mapping.py
 
 which shows a geographic map for country origin of all IP addresses.
