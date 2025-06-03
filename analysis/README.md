@@ -15,3 +15,12 @@ Run the following command:
     python3 map-ips.py unique-ips.json
 
 which produces ```ips-countries.json``` that contains ```"Country":[{IP1},{IP2},...,{IPN}]'```, where the value for each country name is a list containing all IP addresses mapped to that specific country.
+
+### 3) Create geographic map visualizing IP address origin
+Change the path in ```mapping.py```to the path containing ```ips-countries.json```
+
+Run the following command:
+
+  python3 mapping.py
+
+which shows a geographic map for country origin of all IP addresses.
