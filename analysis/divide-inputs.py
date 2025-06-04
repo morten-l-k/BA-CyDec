@@ -1,6 +1,6 @@
 import json
 
-# Set your threshold here
+# Set threshold of number of characters to divide at
 THRESHOLD = 100
 
 # Input and output file paths
@@ -16,19 +16,16 @@ with open(input_file, 'r') as infile:
 short_cmds = []
 long_cmds = []
 
+#Run through each line in the data
 for entry in data:
     if len(entry.get('input', '')) <= THRESHOLD:
         short_cmds.append(entry)
     else:
         long_cmds.append(entry)
 
-# Write output files
+# Write output to files
 with open(short_output, 'w') as short_file:
     json.dump(short_cmds, short_file, indent=2)
 
 with open(long_output, 'w') as long_file:
     json.dump(long_cmds, long_file, indent=2)
-
-print(f"Saved {len(short_cmds)} short commands and {len(long_cmds)} long commands.")
-
-
