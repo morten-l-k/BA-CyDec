@@ -24,3 +24,9 @@ Run the following command:
     python3 mapping.py
 
 which shows a geographic map for country origin of all IP addresses.
+
+# Data analysis of commands
+
+```divide-inputs.py``` can separate lines in a json file based on their length. Used for separating the commands run in the honeypot in longer and shorter commands. Change path for ```extracted-input.json``` in ```divide-inputs.py``` to path for the file. Requirement for ```extracted-input.py``` is that it needs to only include on each line the key-value pair for the {"input":"[COMMAND]"}:
+
+    {"input": "echo Hi | cat -n"} 
