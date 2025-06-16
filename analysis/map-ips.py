@@ -59,16 +59,13 @@ def fill_countries(ips:list):
             grouped["Unknown"].append({'ip': ip, 'country': 'Unknown'})
 
 fill_countries(ips)
-
-#Make list of ips as strings in unknown
-#unknown_ip_list = [grouped['ip'] for entry in grouped["Unknown"]]
-
-#Remove all ocurrences of "unknowns" in 
-#del grouped["Unknown"]    
-
+   
+#Intialize variables to be used for handling false data in "Unknown"
 previous_length = 0
 counter = 3
 
+#Handling of data points mistakenly categorized as "Unknown". When the "Unknown" category is not decreased in size, there will be no more
+#to find.
 while(len(grouped["Unknown"]) > 0):
     if((previous_length == len(grouped["Unknown"])) and counter == 0):
         break
@@ -83,14 +80,14 @@ while(len(grouped["Unknown"]) > 0):
     unknown_ip_list = [entry['ip'] for entry in grouped["Unknown"]]
     
     print("unknown_ip_list is:", unknown_ip_list)
-    #Remove all ocurrences of "unknowns" in 
+    #Remove all ocurrences in "unknowns" category
     del grouped["Unknown"]
 
-    #Call fill_countries on that list
+    #Call fill_countries on the unknown_ip_list to fill entries again
     fill_countries(unknown_ip_list)
 
 
-
+#Print all data
 print(grouped)
 
 with open('ips-countries.json','w') as f_countries:
